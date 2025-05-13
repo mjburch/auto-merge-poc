@@ -9,12 +9,10 @@ on:
       branches:
         - main
 
-
 jobs:
   test:
     runs-on: ubuntu-24.04
     steps:
-      - name: test
-        id: test
-        run: |
-          sleep 10
+      - uses: actions/checkout@v1
+      - name: Try to fail
+        run: exit 1
