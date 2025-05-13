@@ -23,7 +23,7 @@ jobs:
         id: test
         run: |
           sleep 10
-          exit 1
+          exit $(shuf -i 0-2 -n 1)
 
   results:
     runs-on: ubuntu-24.04
