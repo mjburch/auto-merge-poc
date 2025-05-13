@@ -28,8 +28,14 @@ jobs:
   results:
     runs-on: ubuntu-24.04
     needs: [setup, test]
+    if: ${{ always() }}
     steps:
       - name: results
         run: |
-          echo "success!"
+          testResult="${{ needs.test.result }}"
+          if [[ $testResult == "success" ]]; then
+            exit 0
+          else
+            exit 1
+          fi
 
