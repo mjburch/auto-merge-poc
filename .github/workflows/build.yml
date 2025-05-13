@@ -10,9 +10,26 @@ on:
         - main
 
 jobs:
-  test:
+  setup:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v1
-      - name: Try to fail
-        run: exit 1
+      - run: "sleep 10"
+
+  test:
+    runs-on: ubuntu-24.04
+    needs: [setup]
+    steps:
+      - name: test
+        id: test
+        run: |
+          sleep 20
+          exit 1
+
+  results:
+    runs-on: ubuntu-24.04
+    needs: [test]
+    steps:
+      - name: results
+        run: |
+          echo "success!"
+
