@@ -10,8 +10,14 @@ on:
         - main
 
 jobs:
+  setup:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: "sleep 10"
+
   test:
     runs-on: ubuntu-24.04
+    needs: [setup]
     steps:
       - name: test
         id: test
