@@ -18,10 +18,36 @@ jobs:
   test:
     runs-on: ubuntu-24.04
     needs: [setup]
+    strategy:
+      matrix:
+        project:
+          - name: "project1"
+          - name: "project2"
+          - name: "project3"
+          - name: "project4"
+          - name: "project5"
+          - name: "project6"
+          - name: "project7"
+          - name: "project8"
+          - name: "project9"
+          - name: "project10"
+          - name: "project11"
+          - name: "project12"
+          - name: "project13"
+          - name: "project14"
+          - name: "project15"
+          - name: "project16"
+          - name: "project17"
+          - name: "project18"
+          - name: "project19"
+          - name: "project20"
+    name: Test - ${{ matrix.project.name }}
     steps:
+      - uses: actions/checkout@v4
       - name: test
         id: test
         run: |
+          sleep 3
           exit 1
 
   results:
