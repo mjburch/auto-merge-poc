@@ -1,3 +1,3 @@
 # auto-merge-poc
 
-Testing GitHub Actions and Auto-merge
+Testing GitHub Actions and Auto-merge.
