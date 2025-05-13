@@ -13,7 +13,7 @@ jobs:
   setup:
     runs-on: ubuntu-24.04
     steps:
-      - run: "sleep 10"
+      - run: "sleep 3"
 
   test:
     runs-on: ubuntu-24.04
@@ -22,7 +22,7 @@ jobs:
       - name: test
         id: test
         run: |
-          sleep 10
+          sleep 3
           exit $(shuf -i 0-2 -n 1)
 
   results:
