@@ -25,11 +25,12 @@ jobs:
           exit 1
 
   results:
-    if: success() || failure()
+    if: ${{ always() }}
     runs-on: ubuntu-24.04
     needs: [setup, test]
     steps:
-      - name: results
+      - name: output
+        if: success() || failure()
         run: |
           testResult="${{ needs.test.result }}"
           if [[ $testResult == "success" ]]; then
